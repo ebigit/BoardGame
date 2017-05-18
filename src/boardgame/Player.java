@@ -105,7 +105,7 @@ abstract public class Player extends GSprite {
 	}
 
 	// --------------------------------
-	
+
 	/**
 	 * マスの移動（自動）
 	 */
@@ -123,6 +123,9 @@ abstract public class Player extends GSprite {
 				my += valueY;
 				movetrout++;
 			}
+
+
+
 			tick++;
 			return;
 		}
