@@ -60,10 +60,6 @@ public class Cell extends GSprite {
 		coin *= 2.5;
 	}
 
-	public boolean senter(double x, double y) {
-		return this.x == x && this.y == y;
-	}
-
 	public void lightdraw(Graphics g) {
 		g.setColor(Color.CYAN);
 		g.drawRect(X() - 16, Y() - 16, 31, 31);

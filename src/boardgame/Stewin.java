@@ -6,7 +6,10 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
+/**
+ * ステータスウィンドウ
+ * 
+ */
 public class Stewin {
 	private Player player;
 	private Image pic;

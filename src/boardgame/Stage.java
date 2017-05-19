@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 import gaga.GSprite;
-
+/**
+ * ステージクラス
+ */
 public class Stage extends GSprite {
 	private Cell[][] cell = new Cell[15][30];
 	private Cell[][] mcell = new Cell[15][30];
@@ -62,13 +64,6 @@ public class Stage extends GSprite {
 
 	public void lightCell(Graphics g, int x, int y) {
 		cell[y][x].lightdraw(g);
-	}
-
-	public boolean isBra(int x, int y, double dx, double dy, int dir) {
-		if (cell[y][x].CellType() == CellType.BRANCH && cell[y][x].senter(dx, dy)) {
-			return true;
-		}
-		return false;
 	}
 
 	public boolean isBlank(int x, int y) {
@@ -152,6 +147,9 @@ public class Stage extends GSprite {
 		}
 	}
 
+	/**
+	 * マップのデータを外部から読み込み
+	 */
 	public class MapData {
 		public final CellType[][] MAP = new CellType[15][30];
 
@@ -163,7 +161,7 @@ public class Stage extends GSprite {
 				for (int i = 0; (line = br.readLine()) != null; i++) {
 
 					token = new StringTokenizer(line, ",");
-
+					//テキストの文字に応じてそれぞれのマスに変換
 					for (int j = 0; token.hasMoreTokens(); j++) {
 						switch (token.nextToken()) {
 						case "0":
@@ -172,47 +170,12 @@ public class Stage extends GSprite {
 						case "1":
 							MAP[i][j] = CellType.WALL;
 							break;
-						case "2":
-							MAP[i][j] = CellType.BRANCH;
-							break;
 						case "3":
 							MAP[i][j] = CellType.BASE;
 							break;
 						}
 					}
 				}
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
-		}
-	}
-
-	public class EventData {
-		public final Event[][] eMAP = new Event[15][30];
-
-		public void mapload() {
-			try {
-				FileReader fr = new FileReader("res\\MapData1.csv");
-				BufferedReader br = new BufferedReader(fr);
-
-				String line;
-				StringTokenizer token;
-				for (int i = 0; (line = br.readLine()) != null; i++) {
-
-					token = new StringTokenizer(line, ",");
-
-					for (int j = 0; token.hasMoreTokens(); j++) {
-						switch (token.nextToken()) {
-						case "0":
-							eMAP[i][j] = new NoneEve();
-							break;
-						case "1":
-							eMAP[i][j] = new Branch();
-							break;
-						}
-					}
-				}
-				br.close();
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}

@@ -169,7 +169,9 @@ abstract public class Player extends GSprite {
 		tick = 0;
 	}
 
-	public void checkdir(int dir) {
+	//上、右、下、左のどの方向に分岐しているかチェック
+	//来た道に戻ることはできない
+	private void checkdir(int dir) {
 		int x, y;
 		switch (dir) {
 		case 0:
@@ -206,7 +208,7 @@ abstract public class Player extends GSprite {
 		checkdir(dir + 1);
 	}
 
-	public int redir(int dir) {
+	private int redir(int dir) {
 		switch (dir) {
 		case 0:
 			return 2;
@@ -221,6 +223,9 @@ abstract public class Player extends GSprite {
 		}
 	}
 
+	/**
+	 * 分岐点での方向選択（来た方向へは戻れない）
+	 */
 	public void selecdir() {
 		if (My.KEY.horizontal().isPress() || My.KEY.vertical().isPress()) {
 			seleFlag = false;

@@ -8,13 +8,17 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * マスの種類を区別るための列挙体
+ */
 public enum CellType {
-	ROAD(true), WALL(false), BRANCH(true), BASE(false);
+	ROAD(true), WALL(false), BASE(false);
 
 	private boolean isBlank;
 	private Color toumei = new Color(0, 0, 0, 0);
 	private Image pic;
 
+	// 通れるか、通れないかが引数
 	CellType(boolean isWall) {
 		try {
 			pic = ImageIO.read(new File("res\\masu.png"));
@@ -36,9 +40,6 @@ public enum CellType {
 		case WALL:
 			g.setColor(toumei);
 			g.fillRect(x - 15, y - 15, 30, 30);
-			break;
-		case BRANCH:
-			g.drawImage(pic, x - 15, y - 15, x + 15, y + 15, 32 * who, 0, 32 + 32 * who, 32, null);
 			break;
 		case BASE:
 			g.drawImage(pic, x - 15, y - 15, x + 15, y + 15, 32 * 2, 0, 32 + 32 * 2, 32, null);
