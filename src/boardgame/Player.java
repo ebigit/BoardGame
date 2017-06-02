@@ -33,8 +33,8 @@ abstract public class Player extends GSprite {
 	public Player(int x, int y) {
 		mx = x;
 		my = y;
-		this.x = mx * MAXLENGTH + My.Sx;
-		this.y = my * MAXLENGTH + My.Sy;
+		this.x = mx * MAXLENGTH + My.sx;
+		this.y = my * MAXLENGTH + My.sy;
 		money = 500;
 		trout_cnt = 0;
 	}

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 import gaga.GSprite;
+
 /**
  * ステージクラス
  */
@@ -53,10 +54,6 @@ public class Stage extends GSprite {
 		}
 	}
 
-	public void seledraw(int x, int y, int dir) {
-
-	}
-
 	@Override
 	public void update() {
 
@@ -98,55 +95,6 @@ public class Stage extends GSprite {
 		cell[y][x].bonus();
 	}
 
-	// private void checkdir(int dir) {
-	// int x, y;
-	// switch (dir) {
-	// case 0:
-	// x = 0;
-	// y = -1;
-	// break;
-	// case 1:
-	// x = 1;
-	// y = 0;
-	// break;
-	// case 2:
-	// x = 0;
-	// y = 1;
-	// break;
-	// case 3:
-	// x = -1;
-	// y = 0;
-	// break;
-	// default:
-	// x = 0;
-	// y = 0;
-	// break;
-	// }
-	// if (isBlank(mx + x, my + y)) {
-	// if (dir != redir(dir)) {
-	// }
-	// }
-	//
-	// if (dir >= 3) {
-	// return;
-	// }
-	// checkdir(dir + 1);
-	// }
-	private int redir(int dir) {
-		switch (dir) {
-		case 0:
-			return 2;
-		case 1:
-			return 3;
-		case 2:
-			return 0;
-		case 3:
-			return 1;
-		default:
-			return dir;
-		}
-	}
-
 	/**
 	 * マップのデータを外部から読み込み
 	 */
@@ -161,7 +109,7 @@ public class Stage extends GSprite {
 				for (int i = 0; (line = br.readLine()) != null; i++) {
 
 					token = new StringTokenizer(line, ",");
-					//テキストの文字に応じてそれぞれのマスに変換
+					// テキストの文字に応じてそれぞれのマスに変換
 					for (int j = 0; token.hasMoreTokens(); j++) {
 						switch (token.nextToken()) {
 						case "0":

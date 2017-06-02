@@ -1,10 +1,13 @@
 package boardgame;
 
-import gaga.GSprite;
-
+/**
+ * サイコロのクラス
+ */
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Random;
+
+import gaga.GSprite;
 
 public class Dice extends GSprite {
 	private Random rand = new Random();
@@ -32,6 +35,8 @@ public class Dice extends GSprite {
 		}
 	}
 
+	//常にランダムな数字を表示しつづけ
+	//エンターが押されると止める
 	@Override
 	public void update() {
 		if (!stopFlag) {

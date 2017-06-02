@@ -3,6 +3,10 @@ package boardgame;
 import java.awt.Color;
 import java.awt.Graphics;
 
+/**
+ * サイコロは画像ではないため
+ * 目によって丸の位置を変える
+ */
 public enum DiceNum {
 	one, two, three, four, five, six;
 	public void draw(Graphics g, int tick, int x, int y) {

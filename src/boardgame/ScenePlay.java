@@ -145,6 +145,11 @@ public class ScenePlay implements GScene {
 
 	// 作戦中の処理
 	private void updateplan(int tick) {
+		if (mainplayer == p1) {
+			sw1.update();
+		} else {
+			sw2.update();
+		}
 		if (My.GAGA.keyboard().enter().isPressClear()) {
 			state = State.DICE;
 			My.DiceSet.dice.init();

@@ -34,7 +34,7 @@ public interface My {
 		Stage stage = new Stage(177, 177);
 	}
 
-	int Sx = StageSet.stage.X();
-	int Sy = StageSet.stage.Y();
+	int sx = StageSet.stage.X();
+	int sy = StageSet.stage.Y();
 
 }
